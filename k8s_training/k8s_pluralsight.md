@@ -1,0 +1,96 @@
+[Course](https://app.pluralsight.com/library/courses/getting-started-kubernetes/table-of-contents)
+# Intro
+- K8s donated to CNCF (open source)
+- google was running everything on containers and orchestrating with Borg and Omega (before docker stuff and k8s)
+	- Borg -> omega -> k8s
+- what is k8s?
+	- containers bring scalability challenges
+	- we're starting to view the data center as a computer
+	- standard package format, just needs manifest
+- k8s is in its early stages but not super early
+- k8s is platform agnostic
+- k8s lets you target deployments
+- k8s is moving FAST
+
+# K8S architecture
+- k8s is orchestrator for microservice apps
+- relating k8s to soccer
+	- microservices are the players
+	- k8s is the coach, directing what the player what to do
+	- ![[Pasted image 20220815215344.png]]
+- master = control plane
+- nodes (AKA minions) = do the work, report back to master
+- containerize app -> deployment file to tell k8s what our pod should look like
+	- ports, etc
+- decentralized master!!
+- don't run user workloads on the master
+- kube-apiserver : front-end to the control plane
+	- REST API, consumes JSON (via manifest file)
+- cluster store: persistent storage
+	- source of truth for the cluster
+- kube-controller-manager
+	- runs in loop, performs healthcheck
+- apiserver is synonymous to master
+	- apiserver receives commands through kubectl
+- worker nodes: these dispensable workers that we don't care if they die
+- parts of a node:
+	- kubelet
+		- main k8s agent
+		- registers node with the cluster
+		- watches apiserver for commands
+		- reports back to master
+		- exposes endpoint on localhost:10255 on the node
+	- Container Engine
+		- does the container stuff (Docker)
+	- kube-proxy
+		- k8s networking (ex: load balancing)
+		- pod IP address
+		- all containers in a pod share  a single IP
+- Declarative Model and Desired State
+	- YML/JSON describes desired state
+	- you describe what you want, and k8s does all the implementing (you don't give k8s commands!)
+	- any time k8s is not in desired state, k8s will rectify!
+		- k8s will make sure actual state will match desired state!
+- **Pods**
+	- K8s runs containers inside pods
+	- can run multiple containers inside pod, but pretty advanced
+	- pod = sandbox to run containers
+	- multiple containers in a pod:
+		- share pod environment
+		- tight coupling
+	- Pods and Scaling
+		- When scale up, add more pods
+	- pods are atomic
+		- pods are not declared available until they are up and running
+	- pods are mortal!
+		- pending -> running -> success/fail (death)
+	- usually deploy pods as a deployment
+- **Services**
+	- when pods die and are recreated, new IPs are created!
+		- Can't rely on pod IP for communication
+	- This is where services come in!
+	- Service = k8s pod or deployment
+		- provides stable IP and DNS name for pods to communicate with one another
+		- also provides load balancing for requests to receiving pods
+		- Labels
+			- labels let services know which pods to send traffic/load balance over!
+		- services only send traffic to healthy pods
+		- uses TCP by default
+- **Deployments**
+	- ReplicationController was the old way
+		- replaced with Replica Sets
+		- we don't really get involved with this
+	- Deployment is the NEW way
+	- declarative model
+		- You say, "this is what you want", and k8s does it
+	- self-documenting, spec-once deploy many, versioned
+	- simple rolling updates and rollbacks
+		- blue-green and canary releases super easy
+# Installing K8s
+- minikube
+	- basically docker for windows/linux
+	- best way of spinning up local k8s env
+	- needs a vm-driver
+		- xhyve = virtualization of OSX
+- kOps
+	- kubectl for clusters on the cloud

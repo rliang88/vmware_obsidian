@@ -1,0 +1,5 @@
+- what is the `vcd-k8s-provider` repo?
+- what is the `vcd-rde-projector` repo?
+	- `projector-components.yaml` tells `vcd-k8s-provider` how to install `rde-projector` into k8s I guess
+	- ask Yan or Sahiti
+- what is CRS (ClusterResourceSet)

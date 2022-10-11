@@ -1,0 +1,24 @@
+# Deployments
+- Deployments are used to tell k8s how to create/modify instances of pods that hold containerized applications
+	- scale replica pods
+	- roll out updates
+	- roll back to previous versions
+- recommended to use Deployments instead of ReplicaSets
+
+- **Rolling Update**
+	- edit the deployment YML and then run:
+		- `kubectl apply -f <deployment-name>`
+		- `kubectl edit deployment <deployment-name>`
+	- check on update rollout by:
+		- `kubectl rollout status deployment <deployment-name`
+	- undo a rollout update:
+		- `kubectl rollout undo deployment <deployment-name>`
+		- to rollback to specific version, add:
+			- `--to-revision=<revision number>`
+	- check rollout history:
+		- `kubectl rollout history deployment <deployment-name>`
+		- to get more details, add:
+			- `--revision=<revision number>` 
+	- Pause and resume deployment:
+		- pause : `kubectl rollout pause deployment <deployment-name>`
+		- resume: `kubectl rollout resume deployment <deployment-name>`

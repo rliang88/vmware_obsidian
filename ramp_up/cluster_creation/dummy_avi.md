@@ -1,0 +1,25 @@
+# Dummy AVI allocation
+- set Primary + Secondary DNS and DNS suffix from [capi dev setup confluence](https://confluence.eng.vmware.com/pages/viewpage.action?spaceKey)
+	- Add AVI to cluster org, which can be found in capi dev as well
+- Add external IPs to provider `external_tier0_nw`
+	- Provider -> Tier-0 Gateways -> Network Specification
+	- Find external IPs from testbed json
+- Register external IPs in Tenant
+	- Tenant -> Networking -> Edge Gateways -> IP Management -> IP Allocations -> Quick IP Allocation
+- Create SNAT rule
+	- SNAT rule is for traffic going out of the OVDC
+	- name it snat rule
+	- external IP - just choose one from the info
+	- internal IP - given in capi dev setup
+- Create Dummy AVI Load Balancer Pool
+	- tenant1_edge_gw -> Load Balancer -> Pools -> Add
+	- name: dummy_avi_service
+	- port: 1.2.3.4
+		- this don't matter since it's a dummy
+- Create Dummy AVI Load Balancer Service
+	- tenant1_edge_gw -> Load Balancer -> Virtual Services -> Add
+	- name: dummy_avi_service
+	- Service Engine Group: aviseg
+	- Load Balancer Pool : dummy_avi_pool
+	- Virtual IP: 1.2.3.4
+		- once again, this don't matter since it's a dummy

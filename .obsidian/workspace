@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "cf3388a68b41ce55",
+    "type": "split",
+    "children": [
+      {
+        "id": "bb71c0b3bd0db444",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "notebook/temp.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0d49a777f0a8f45c",
+    "type": "split",
+    "children": [
+      {
+        "id": "2e2787c5c3b8dd02",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "847e181c0023fd56",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "37ec3a0541a37f17",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "acb5f5e10460ea72",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 507.5
+  },
+  "right": {
+    "id": "3a7942585dfafe52",
+    "type": "split",
+    "children": [
+      {
+        "id": "7514ad18d4d5fdbe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "095b0414e9150406",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "notebook/temp.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "99bd09904efa9092",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "notebook/temp.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1e51b220e87c318e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "75bed310d0ee1e6c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "notebook/temp.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "bb71c0b3bd0db444",
+  "lastOpenFiles": [
+    "ramp_up/golang/temp.md",
+    "notebook/temp.md",
+    "notebook/cloud_director_CSE.md",
+    "ramp_up/golang/go_getting_started.md",
+    "ramp_up/cluster_creation/testbed_setup.md",
+    "ramp_up/cluster_creation/cluster_creation.md",
+    "ramp_up/cluster_creation/dummy_avi.md",
+    "ramp_up/k8s/notes.md",
+    "ramp_up/k8s/5_pods.md",
+    "ramp_up/k8s/6_replica_set.md"
+  ]
+}
